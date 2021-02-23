@@ -76,7 +76,7 @@
       </div>
 
       <!-- Sidebar Widgets Column -->
-     <?php require_once('partial/sidebar.php'); ?>
+     <?php require_gonce('partial/sidebar.php'); ?>
 
     </div>
     <!-- /.row -->
