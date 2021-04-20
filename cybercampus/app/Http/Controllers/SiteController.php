@@ -14,15 +14,31 @@ class SiteController extends Controller
 
     public function tentang ()
     {
-        return view('Site.tentang');
+        $nama_prodi = 'Sistem Informasi';
+        $universitas = 'Universitas Tanjungpura';
+        $kajur = 'Ilhamsyah';
+
+        return view('Site.tentang', compact('nama_prodi','universitas','kajur'));
     }
 
     public function kontak ()
     {
-        return view('Site.kontak');
+        return view('site.kontak');
     }
     public function layanan ()
     {
-        return view('Site.layanan');
+        $list_layanan = [
+        'Pendidikan dan Pengajaran',
+        'Bakti pada Masyarakat',
+        'Penelitian',
+        'Pengembangan Aplikasi',
+        'Analisis Data'
+        ];
+        return view('site.layanan', compact('list_layanan'));
+    }
+
+    public function listDosen ($tahun)
+    {
+        echo "Ini adalah halaman list dosen". $tahun;
     }
 }

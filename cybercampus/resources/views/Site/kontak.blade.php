@@ -8,16 +8,15 @@
 </head>
 <body>
     <h1>Kontak Kami</h1> <br>
-    <form action="">
-    
-    <label for="">Nama</label>
-    <input type="text" placeholder="Nama"> <br> <br> 
-    <label for="">Email</label>
-    <input type="email" placeholder="email" > <br> <br>
-    <label for="">Tanggapan</label> <br> <br>
-    <textarea id="" name="" rows="8" cols="40" placeholder="">
-</textarea>
-    
+    <form>
+        <label for="nama">Nama :</label>
+        <input type="text" id="nama" name="nama"><br> <br> 
+        <label for="email">Email :</label>
+        <input type="text" id="email" name="email"><br> <br>
+        <label for="tanggapan">Tanggapan :</label> <br> 
+        <textarea input width=300px type="text" id="Tanggapan" name="Tanggapan"> </textarea>
+        <input type="button" name="kirim" value="kirim">
+        
     
     </form>
 </body>

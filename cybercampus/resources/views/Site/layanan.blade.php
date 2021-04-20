@@ -8,22 +8,12 @@
 </head>
 <body>
     <h1>Layanan</h1>
-    <h2>Layanan Program Studi Sistem Informasi Meliputi :</h2>
-    <ul>
-        <li>
-        Pendidikan dan Pengajaran.
-        </li>
-
-        <li>
-        Bakti pada Masyarakat.
-        </li>
-
-        <li>
-        Penelitian.
-        </li>
-    
-    
-    </ul>
+    <p>Layanan Program Studi Sistem Informasi Meliputi : </p>
+    <ol>
+        @foreach($list_layanan as $ls)
+        <li>{{$ls}}</li>
+        @endforeach
+    </ol>
     
 </body>
 </html>

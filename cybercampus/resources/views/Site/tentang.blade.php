@@ -7,7 +7,13 @@
     <title>Tentang</title>
 </head>
 <body>
-    <h1>Program Studi Sistem Informasi</h1>
-    <p>Program studi sistem informasi mulai beroperasi pada tahun 2014</p>
+    <h1>Nama Ketua Jurusan <?= $kajur ?></h1>
+    <?php echo $nama_prodi ?>
+    <p> Waktu saat ini: {{time()}}</p>
+    @if (5 < 10) <h2>Kondisi Benar</h2>
+        @endif
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae distinctio ad sed deleniti provident maiores, quasi qui eius exercitationem sit fugit illo fugiat tempore nulla ipsa rem quo natus cum?</p>
+        <p>Nama universitas :<b>{{$universitas}} </b>
+        
 </body>
 </html>

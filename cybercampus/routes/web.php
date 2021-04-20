@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/beranda', [SiteController::class,'beranda']); 
 Route::get('/tentang', [SiteController::class,'tentang']); 
 Route::get('/kontak', [SiteController::class,'kontak']); 
 Route::get('/layanan', [SiteController::class,'layanan']); 
+Route::get('/list-dosen/{tahun}', [SiteController::class, 'listDosen']); 
 
 Route::get('/', function () {
     return view('welcome');
