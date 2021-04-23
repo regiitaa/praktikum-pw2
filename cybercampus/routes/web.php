@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\LayananController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/beranda', [SiteController::class,'beranda']); 
-Route::get('/tentang', [SiteController::class,'tentang']); 
+Route::get('/tentang', [SiteController::class,'tentang']);
+Route::get('/percontohan', [SiteController::class,'percontohan']);  
 Route::get('/kontak', [SiteController::class,'kontak']); 
 Route::get('/layanan', [SiteController::class,'layanan']); 
 Route::get('/list-dosen/{tahun}', [SiteController::class, 'listDosen']); 
+Route::get('/layanan-raw', [SiteController::class, 'tampilLayananRaw']); 
+Route::get('/layanan/index', [LayananController::class, 'index']); 
+Route::get('/layanan/detail/{id}', [LayananController::class, 'detail']); 
+Route::get('/layanan/tambah', [LayananController::class, 'tambah']); 
+Route::get('/layanan/ubah/{id}', [LayananController::class, 'ubah']); 
+Route::get('/layanan/hapus/{id}', [LayananController::class, 'hapus']); 
 
 Route::get('/', function () {
     return view('welcome');
