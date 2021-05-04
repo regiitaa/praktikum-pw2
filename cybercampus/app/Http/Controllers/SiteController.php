@@ -10,7 +10,7 @@ class SiteController extends Controller
 {
     public function beranda()
     {
-       return view('beranda'); //lokasi file: resource/views/beranda.php
+       return view('site.beranda'); //lokasi file: resource/views/beranda.php
     
     }
 
@@ -58,4 +58,19 @@ class SiteController extends Controller
     {
         echo "Ini adalah halaman list dosen". $tahun;
     }
+    public function cobaForm()
+    {
+        return view('site.coba_form');
+
+    }
+    public function prosesForm(Request $request)
+    { 
+         $nama = $request->nama;
+        //proses masukan nama ke database
+
+        //setelah diproses dilempar ke halaman lain 
+        return redirect()->route('kontak');
+
+    }
 }
+
