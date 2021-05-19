@@ -3,7 +3,7 @@
 <div class="container-fluid">
 
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">Layanan SISFO</h1>
+<h1 class="h3 mb-4 text-gray-800">Layanan Jurusan Sistem Informasi</h1>
 <div class="row">
     <div class="col-lg-12">
 
