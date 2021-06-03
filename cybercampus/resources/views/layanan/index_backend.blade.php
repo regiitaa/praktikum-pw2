@@ -16,14 +16,14 @@
           
         </div>
 <h1> Layanan kami (Eloquent)</h1>
-<a href="{{route('layanan.formtambah_backend')}}" class="btn btn-primary">Tambah Layanan</a>
+<a href="{{route('admin.layanan.formtambah_backend')}}" class="btn btn-primary">Tambah Layanan</a>
 <ul>
 <br>
     @foreach($layanan as $lyn)
     <li> {{$lyn->nama_layanan}}
-    <a href="{{route('layanan.detail_backend', ['id'=>$lyn->id])}}">Detail</a>
-    <a href="{{route('layanan.formubah_backend', ['id'=>$lyn->id])}}">Ubah</a>
-    <a href="{{route('layanan.hapus_backend', ['id'=>$lyn->id])}}">Hapus</a>
+    <a href="{{route('admin.layanan.detail_backend', ['id'=>$lyn->id])}}">Detail</a>
+    <a href="{{route('admin.layanan.formubah_backend', ['id'=>$lyn->id])}}">Ubah</a>
+    <a href="{{route('admin.layanan.hapus_backend', ['id'=>$lyn->id])}}">Hapus</a>
 
     </li>
 

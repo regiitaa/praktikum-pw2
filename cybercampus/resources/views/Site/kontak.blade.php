@@ -20,4 +20,9 @@
         
     
     </form>
+
+@if(Auth::user()->hasRole('member'))
+<h1>Teks ini cuma boleh dibaca oleh member</h1>
+@endif
+
 @endsection

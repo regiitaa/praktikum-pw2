@@ -26,8 +26,7 @@
                 <div class="card-body">
                     Ini merupakan halaman latihan untuk praktikum pemrograman web 2. Lorem ipsum, dolor
                     sit amet consectetur adipisicing elit. Qui eaque quis eius nisi, voluptatem, vero
-                    maxime iure harum quasi repellat fuga provident doloremque est minima at delectus
-                    nesciunt sit libero.
+                    maxime iure harum quasi repellat fuga provident doloremque est minima at delectus.
                 </div>
             </div>
         </div>

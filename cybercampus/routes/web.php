@@ -3,6 +3,11 @@
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\SiteBackendController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\BeritaController;
+
+use App\Models\Layanan;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [SiteController::class,'beranda'])->name('beranda'); 
-Route::get('/tentang', [SiteController::class,'tentang'])->middleware('auth');
+Route::get('/tentang', [SiteController::class,'tentang'])->middleware(['auth', 'permission:menambahkan-berita']);
 Route::get('/percontohan', [SiteController::class,'percontohan']);  
 Route::get('/site/kontak', [SiteController::class,'kontak'])->name('kontak'); 
 Route::get('/layanan', [SiteController::class,'layanan']); 
@@ -33,14 +38,34 @@ Route::get('/layanan/hapus/{id}', [LayananController::class, 'hapus'])->name('la
 Route::get('/cobaform', [SiteController::class, 'cobaForm'])->name('cobaform'); 
 Route::post('/prosesform', [SiteController::class, 'prosesForm'])->name('prosesform'); 
 
+// OPERASI CRUD PADA BACKEND
 Route::get('/admin/dashboard', [SiteBackendController::class, 'index'])->name('admin.dashboard');
 Route::get('/admin/layanan', [LayananController::class,'indexBackend'])->name('admin.layanan')->middleware('auth');
-Route::get('/layanan/formtambah_backend', [LayananController::class, 'formTambahBackend'])->name('layanan.formtambah_backend');
-Route::post('/layanan/tambahBackend', [LayananController::class,'tambahBackend'])->name('layanan.tambahBackend');
-Route::get('/layanan/detail_backend/{id}', [LayananController::class,'detailBackend'])->name('layanan.detail_backend');
-Route::get('/layanan/formubah_backend/{id}', [LayananController::class,'formUbahBackend'])->name('layanan.formubah_backend');
-Route::post('/layanan/ubah_backend/{id}', [LayananControllerr::class,'ubahBackend'])->name('layanan.ubah_backend');
-Route::get('/layanan/hapus_backend/{id}', [LayananController::class,'hapusBackend'])->name('layanan.hapus_backend');
+Route::get('/admin/layanan/formtambah_backend', [LayananController::class, 'formTambahBackend'])->name('admin.layanan.formtambah_backend')->middleware('auth');
+Route::post('/admin/layanan/tambahBackend', [LayananController::class,'tambahBackend'])->name('admin.layanan.tambahBackend')->middleware('auth');
+Route::get('/admin/layanan/detail_backend/{id}', [LayananController::class,'detailBackend'])->name('admin.layanan.detail_backend')->middleware('auth');
+Route::get('/admin/layanan/formubah_backend/{id}', [LayananController::class,'formUbahBackend'])->name('admin.layanan.formubah_backend')->middleware('auth');
+Route::post('/admin/layanan/ubah_backend/{id}', [LayananController::class,'ubahBackend'])->name('admin.layanan.ubah_backend')->middleware('auth');
+Route::get('/admin/layanan/hapus_backend/{id}', [LayananController::class,'hapusBackend'])->name('admin.layanan.hapus_backend')->middleware('auth');
+
+
+// OPERASI CRUD PADA Kategori
+Route::get('/admin/kategori/index', [KategoriController::class,'index'])->name('admin.kategori.index')->middleware('auth');
+Route::get('/admin/kategori/formtambah', [KategoriController::class,'formTambah'])->name('admin.kategori.formTambah')->middleware('auth');
+Route::get('/admin/kategori/formubah/{id}', [KategoriController::class,'formUbah'])->name('admin.kategori.formUbah')->middleware('auth');
+Route::post('/admin/kategori/tambah', [KategoriController::class, 'tambah'])->name('admin.kategori.tambah')->middleware('auth');
+Route::post('/admin/kategori/ubah/{id}', [KategoriController::class, 'ubah'])->name('admin.kategori.ubah')->middleware('auth');
+Route::get('/admin/kategori/detail/{id}', [KategoriController::class, 'detail'])->name('admin.kategori.detail')->middleware('auth');
+Route::get('/admin/kategori/hapus/{id}', [KategoriController::class, 'hapus'])->name('admin.kategori.hapus')->middleware('auth');
+
+// Operasi CRUD pada Berita
+Route::get('/admin/berita/index', [BeritaController::class, 'index'])->name('admin.berita.index')->middleware(['auth', 'permission:index-berita']);
+Route::get('/admin/berita/detail/{id}', [BeritaController::class, 'detail'])->name('admin.berita.detail')->middleware(['auth', 'permission:detail-berita']);
+Route::get('/admin/berita/formtambah', [BeritaController::class, 'formTambah'])->name('admin.berita.formtambah')->middleware(['auth', 'permission:menambahkan-berita']);
+Route::post('/admin/berita/tambah/', [BeritaController::class, 'tambah'])->name('admin.berita.tambah')->middleware(['auth', 'permission:menambahkan-berita']);
+Route::get('/admin/berita/formubah/{id}', [BeritaController::class, 'formUbah'])->name('admin.berita.formubah')->middleware(['auth', 'permission:edit-berita']);
+Route::post('/admin/berita/ubah/{id}', [BeritaController::class, 'ubah'])->name('admin.berita.ubah')->middleware(['auth', 'permission:edit-berita']);
+Route::get('/admin/berita/hapus/{id}', [BeritaController::class, 'hapus'])->name('admin.berita.hapus')->middleware(['auth','permission:hapus-berita']);
 
 
 

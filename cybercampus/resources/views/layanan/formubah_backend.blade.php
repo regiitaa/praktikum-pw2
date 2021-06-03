@@ -12,7 +12,7 @@
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
         </div>
-        <form action="{{ route('layanan.ubah_backend',['id'=>$layanan->id])}} " method="post">
+        <form action="{{ route('admin.layanan.ubah_backend', ['id'=>$layanan->id])}} " method="post">
     @csrf
     <div class="form-group">
         <label for="nama_layanan">Nama Layanan </label>

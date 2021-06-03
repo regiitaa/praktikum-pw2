@@ -14,7 +14,7 @@
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
         </div>
-        <form action="{{ route ('layanan.tambahBackend') }}" method = "post">
+        <form action="{{ route ('admin.layanan.tambahBackend') }}" method = "post">
     @csrf
         <div class= "form-group">
             <label for="nama_layanan">Nama Layanan</label>

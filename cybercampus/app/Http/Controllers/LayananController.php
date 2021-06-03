@@ -87,7 +87,7 @@ class LayananController extends Controller
         $layanan->deskripsi_layanan = $request->deskripsi_layanan;
         $layanan->save();
         // echo "sudah diubah";
-        return redirect()->route('layanan.detail_backend', ['id'=> $layanan->id]);
+        return redirect()->route('admin.layanan.detail_backend', ['id'=> $layanan->id]);
     }
     public function hapusBackend($id)
     {
