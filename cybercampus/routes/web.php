@@ -5,6 +5,7 @@ use App\Http\Controllers\SiteBackendController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\GalleryController;
 
 use App\Models\Layanan;
 
@@ -67,6 +68,10 @@ Route::get('/admin/berita/formubah/{id}', [BeritaController::class, 'formUbah'])
 Route::post('/admin/berita/ubah/{id}', [BeritaController::class, 'ubah'])->name('admin.berita.ubah')->middleware(['auth', 'permission:edit-berita']);
 Route::get('/admin/berita/hapus/{id}', [BeritaController::class, 'hapus'])->name('admin.berita.hapus')->middleware(['auth','permission:hapus-berita']);
 
+//Gallery
+Route::get('/gallery/upload', [GalleryController::class, 'formUpload'])->name('gallery.upload');
+Route::post('/gallery/proses-upload', [GalleryController::class, 'prosesUpload'])->name('gallery.prosesUpload');
+Route::get('/gallery/view-gallery/{id}', [GalleryController::class, 'viewGallery'])->name('gallery.viewGallery');
 
 
 //Route::get('/', function () {

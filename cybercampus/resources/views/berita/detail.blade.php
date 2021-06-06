@@ -33,6 +33,10 @@
                         <td>Penulis</td>
                         <td>{{$berita->user->name}}</td>
                     </tr>
+                    <tr>
+                        <td>Gambar</td>
+                        <td><img src="{{asset('gambar/'.$berita->cover_img)}}" alt="gambar"></td>
+                    </tr>
                 </table>
 
                 </div>

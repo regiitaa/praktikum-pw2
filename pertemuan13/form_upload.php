@@ -9,9 +9,9 @@
 <body>
     <h1>Fitur Upload File</h1>
         <form action="proses_upload.php" method="post" enctype="multipart/form-data">
-        <label for="gambar">Upload gambar anda disini</label><br>
-        <input type="file" name="gambar" id="gambar"><br>
-        <input type="submit" name="submit" value="kirim">
+            <label for="gambar">Upload gambar anda disini</label><br>
+            <input type="file" name="gambar" id="gambar"><br>
+            <input type="submit" name="submit" value="kirim">
     </form>
 </body>
 </html>
