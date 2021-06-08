@@ -54,14 +54,24 @@ class BeritaController extends Controller
     }
     public function ubah(Request $request, $id)
     {
-        $berita= Berita::find($id);
+        $berita = Berita::find($id);
         $berita->judul = $request->judul;
         $berita->isi = $request->isi;
-        $berita->kategori_id = $request->kategori_id ;
-        $berita->cover_img = $request->cover_img;
+        $cover_img = $request->file('cover_img');
+        $berita->kategori_id = $request->kategori_id;
         $berita->user_id = Auth::id();
+        
+        $filename = time().'-'.$cover_img->getClientOriginalName() ;
+        $berita->cover_img = $filename;
+        
+        $request->validate([
+            'cover_img'=>'mimes:png,jpg|max:1024',
+        ]);
+        $request->cover_img->move(public_path('gambar'), $filename);
+        
+//terupdate
         $berita->save();
-         return redirect()->route('admin.berita.detail', ['id' => $berita->id]);
+        return redirect()->route('admin.berita.detail', ['id' => $berita->id]);
      }
 
      public function hapus($id)

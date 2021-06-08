@@ -12,7 +12,7 @@
                     <a href="{{route('admin.berita.index')}}" class="btn btn-sm btn-primary float-right">Kembali</a>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('admin.berita.ubah',['id'=>$berita->id])}}" method="post">
+                    <form action="{{route('admin.berita.ubah',['id'=>$berita->id])}}" method="post"  enctype="multipart/form-data">
                         @csrf
                         
                         <div class="form-group">
@@ -24,8 +24,11 @@
                             <textarea name="isi" id="isi" cols="30" rows="10" class="form-control">{{$berita->isi}}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="cover_img">Gambar Cover Berita</label>
-                            <input type="text" class="form-control" name="cover_img" value="{{$berita->cover_img}}">
+                            <label for="cover_img">File</label>
+                            <input type="file" name="cover_img" class="form-control" value="{{$berita->cover_img}}">
+                        </div>
+                        <div class="form-group">
+                            <td><img src="{{asset('gambar/'.$berita->cover_img)}}" alt="{{$berita->cover_img}}"></td>
                         </div>
                         <div class="form-group">
                             <label for="kategori_id">Kategori Berita</label>
