@@ -6,8 +6,11 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\DosenController;
 
 use App\Models\Layanan;
+use App\Models\Dosen;
+use App\Models\Mahasiswa;
 
 use Illuminate\Support\Facades\Route;
 
@@ -72,6 +75,10 @@ Route::get('/admin/berita/hapus/{id}', [BeritaController::class, 'hapus'])->name
 Route::get('/gallery/upload', [GalleryController::class, 'formUpload'])->name('gallery.upload');
 Route::post('/gallery/proses-upload', [GalleryController::class, 'prosesUpload'])->name('gallery.prosesUpload');
 Route::get('/gallery/view-gallery/{id}', [GalleryController::class, 'viewGallery'])->name('gallery.viewGallery');
+
+// Dosen
+Route::get('/dosen/index', [DosenController::class, 'index'])->name('dosen.index')->middleware(['auth', 'permission:index-berita']);
+Route::get('/dosen/hapus/{id}', [DosenController::class, 'hapus'])->name('dosen.hapus')->middleware(['auth', 'permission:index-berita']);
 
 
 //Route::get('/', function () {
